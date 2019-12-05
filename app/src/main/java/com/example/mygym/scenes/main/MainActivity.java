@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_main);
 
         //Detect if user is loged in
         if (SessionDataSource.shared.isUserLogedIn()) {
