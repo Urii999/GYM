@@ -10,7 +10,13 @@ import android.widget.Button;
 import com.example.mygym.R;
 import com.example.mygym.scenes.exercises.ExercisesActivity;
 
-public class WellcomeActivity extends AppCompatActivity {
+
+interface IWellcomeActivity {
+    void navigateToPrivate();
+}
+
+
+public class WellcomeActivity extends AppCompatActivity implements IWellcomeActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +27,16 @@ public class WellcomeActivity extends AppCompatActivity {
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), ExercisesActivity.class);
-                    startActivityForResult(intent, 0);
+                   WellcomeActivity.this.navigateToPrivate();
                 }
             });
         }
 
 
+    @Override
+    public void navigateToPrivate() {
+        Intent intent = new Intent(WellcomeActivity.this, ExercisesActivity.class);
+        startActivityForResult(intent, 0);
     }
+}
 
