@@ -25,10 +25,12 @@
         android:layout_marginBottom="40dp"
         android:layout_weight="1"
         android:background="@color/colorPrimary"
+        android:contextClickable="true"
         android:text="LOGIN"
         android:textColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:textAllCaps="false"
         app:layout_constraintStart_toStartOf="parent" />
 
 
