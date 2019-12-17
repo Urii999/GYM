@@ -2,7 +2,7 @@ package com.example.mygym.datasources;
 
 import androidx.annotation.NonNull;
 
-import com.example.mygym.helpers.CallBack;
+import com.example.mygym.helpers.CustomCallBack;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -18,7 +18,7 @@ public class SessionDataSource {
         FirebaseAuth.getInstance().signOut();
     }
 
-    public void getCurrentUser(final CallBack callback) {
+    public void getCurrentUser(final CustomCallBack callback) {
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         callback.onSuccess(currentUser);
     }
@@ -27,7 +27,7 @@ public class SessionDataSource {
         return FirebaseAuth.getInstance().getCurrentUser() != null;
     }
 
-    public void SignIn(final CallBack callback) {
+    public void SignIn(final CustomCallBack callback) {
         FirebaseAuth.getInstance().signOut();
         FirebaseAuth.getInstance().signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
