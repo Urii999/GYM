@@ -3,6 +3,7 @@ package com.example.mygym.scenes.exercises;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.GridView;
 
 import com.example.mygym.R;
 import com.example.mygym.datasources.ExercicesDataSource;
@@ -27,7 +28,7 @@ public class ExercisesActivity extends AppCompatActivity {
                 presenter.UpdateList( list);
 
 
-                //((GridView) findViewById(R.id.galleryGrid)).setAdapter(this.presenter);
+                ((GridView) findViewById(R.id.)).setAdapter(this.presenter);
 
             }
 
