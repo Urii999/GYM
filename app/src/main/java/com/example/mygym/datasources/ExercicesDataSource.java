@@ -3,6 +3,7 @@ package com.example.mygym.datasources;
 import androidx.annotation.NonNull;
 
 
+import com.example.mygym.entities.ExercicesEntity;
 import com.example.mygym.helpers.CustomCallBack;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -17,14 +18,14 @@ public class ExercicesDataSource {
 
     public static ExercicesDataSource shared = new ExercicesDataSource();
 
-    private ArrayList<ExercicesDataSource> assetsList = new ArrayList<ExercicesDataSource>();
+    private ArrayList<ExercicesEntity> assetsList = new ArrayList<ExercicesEntity>();
     private String id;
-    private ArrayList<ExercicesDataSource> ExercicesList;
+    private ArrayList<ExercicesEntity> ExercicesList;
 
 
-    public ExercicesDataSource getById(String id){
+    public ExercicesEntity getById(String id){
 
-        for (ExercicesDataSource asset : this.assetsList) {
+        for (ExercicesEntity asset : this.assetsList) {
             if (asset.id.equals(id)) {
                 return asset;
             }
@@ -51,7 +52,7 @@ public class ExercicesDataSource {
         ValueEventListener eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                ArrayList<ExercicesDataSource> ExercicesList = new ArrayList<ExercicesDataSource>();
+                ArrayList<ExercicesEntity> ExercicesList = new ArrayList<ExercicesEntity>();
 
                 for (DataSnapshot item_snapshot : dataSnapshot.getChildren()) {
 
@@ -76,15 +77,15 @@ public class ExercicesDataSource {
         databaseReference.addValueEventListener(eventListener);
     }
 
-    private ExercicesDataSource snapshotToAssetModel(DataSnapshot item_snapshot) {
+    private ExercicesEntity snapshotToAssetModel(DataSnapshot item_snapshot) {
 
         String id = item_snapshot.getKey().toString();
 
-        Integer name = item_snapshot.child("name").exists() ? Integer.parseInt(item_snapshot.child("name").getValue().toString()) : 0;
+        String name = item_snapshot.child("name").exists() ? item_snapshot.child("name").getValue().toString() : "";
     
 
 
-        return new ExercicesDataSource();
+        return new ExercicesEntity(id, name);
 
     }
 }
