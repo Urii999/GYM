@@ -64,7 +64,7 @@ public class ExercicesDataSource {
                 if(!subscribeCallback){
                     databaseReference.removeEventListener(this);
                 }
-
+                assetsList = ExercicesList;
                 callback.onSuccess(ExercicesList);
             }
 

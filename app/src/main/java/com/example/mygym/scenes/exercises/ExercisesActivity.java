@@ -19,23 +19,13 @@ public class ExercisesActivity extends AppCompatActivity {
 
     public void navigateToDetail(ExercicesEntity exercice){
         //Crate an intent to a private activity --> Exercices
-        //Intent intent = new Intent( ExercisesActivity.this, ExerciseDetail.class);
-        //intent.setAction(Intent.ACTION_VIEW);
-        //intent.putExtra(ExerciseDetail.CONSTANT_ID_EXERCICE, exercice.id);
+        Intent intent = new Intent( ExercisesActivity.this, ExerciceDetail.class);
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.putExtra(ExerciceDetail.CONSTANT_ID_EXERCICE, exercice.id);
 
-        //ExercisesActivity.this.startActivity(intent);
+        ExercisesActivity.this.startActivity(intent);
 
-        //ON THE DETAIL ACTIVITY
-        // //Getting parameter from intent
 
-        // ON THE HEAD -->
-        //
-        // private ExercicesEntity entity;
-        // public static String CONSTANT_ID_EXERCICE = "PARAM_ID_EXERCICE";
-
-        //ONCREATE METHOD
-        // String exerciceID = ExerciseDetail.this.getIntent().getStringExtra(CONSTANT_ID_EXERCICE);
-        // this.entity =  ExercicesDataSource.shared.getById( exerciceID );
     }
 
     @Override
