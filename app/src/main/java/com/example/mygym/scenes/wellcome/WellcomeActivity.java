@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.mygym.R;
+import com.example.mygym.datasources.SessionDataSource;
+import com.example.mygym.helpers.CustomCallBack;
 import com.example.mygym.scenes.exercises.ExercisesActivity;
 
 
@@ -27,7 +29,18 @@ public class WellcomeActivity extends AppCompatActivity implements IWellcomeActi
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                   WellcomeActivity.this.navigateToPrivate();
+
+                    SessionDataSource.shared.SignIn( new CustomCallBack() {
+                        @Override
+                        public void onSuccess(Object responseObject) {
+                            WellcomeActivity.this.navigateToPrivate();
+                        }
+
+                        @Override
+                        public void onError() {
+
+                        }
+                    } );
                 }
             });
         }
