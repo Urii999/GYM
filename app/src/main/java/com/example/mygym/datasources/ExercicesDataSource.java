@@ -84,10 +84,11 @@ public class ExercicesDataSource {
         String name = item_snapshot.child("name").exists() ? item_snapshot.child("name").getValue().toString() : "";
         String hores = item_snapshot.child("hores").exists() ? item_snapshot.child("hores").getValue().toString() : "";
         String iconurl = item_snapshot.child("iconurl").exists() ? item_snapshot.child("iconurl").getValue().toString() : "";
+        String description = item_snapshot.child("description").exists() ? item_snapshot.child("description").getValue().toString() : "";
 
 
 
-        return new ExercicesEntity(id, name,hores,iconurl);
+        return new ExercicesEntity(id, name,hores,iconurl,description);
 
     }
 }
